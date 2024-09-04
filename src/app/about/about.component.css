@@ -1,0 +1,24 @@
+.banner{
+    background-image: url('../../assets/img/abtbg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    object-fit: contain;
+    height: 60rem;
+    
+}
+
+b{
+    padding-left: 550px;
+}
+
+.a{
+    padding-left: 83%;
+    padding-top:2%;
+    padding-right: 0%;
+}
+
+
+@media(max-width:1200px){
+    
+}

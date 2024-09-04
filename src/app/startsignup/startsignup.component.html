@@ -1,0 +1,41 @@
+
+<div class="container">
+    <h1>Create Account</h1>
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm" class="signup-form">
+      <div class="form-group">
+        <label for="startupname">STARTUP Name:</label>
+        <input type="text" id="startupname" name="startupname" [(ngModel)]="user.startupname" required>
+        <div *ngIf="signupForm.controls['startupname'].invalid && signupForm.controls['startupname'].touched" class="error-message">
+          START UP Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+        <div *ngIf="signupForm.controls['username'].invalid && signupForm.controls['username'].touched" class="error-message">
+          User Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="user.password" required minlength="8">
+        <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="error-message">
+          Password must be at least 8 characters.
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="startupcode" style="color: red;">Startup Code:</label>
+        <input type="text" id="startupcode" name="startupcode" [(ngModel)]="user.startupcode" required minlength="4">
+        <div *ngIf="signupForm.controls['startupcode'].invalid && signupForm.controls['startupcode'].touched" class="error-message">
+          Startup Code must be at least 4 characters.
+        </div>
+      </div> -->
+  
+      <button type="submit"  style="color: #ffffff;font-style: normal;" routerLink="/startuplogin">Create Account</button>
+      <br>  
+      <p>Already Have An Account!</p>
+      <!-- <button routerLink="/login">Login</button> -->
+      <p routerLink="/startuplogin" style="font-size: 20px;  color: blue;cursor: pointer;">Login</p>
+        </form>
+  </div>
+  <router-outlet></router-outlet>

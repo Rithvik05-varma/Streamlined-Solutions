@@ -1,0 +1,61 @@
+
+<div class="container">
+  <h1>Create Account</h1>
+  <form (ngSubmit)="onSubmit()" #signupForm="ngForm" class="signup-form">
+    <div class="form-group">
+      <label for="mncname">Company Name:</label>
+      <input type="text" id="mncname" name="mncname" [(ngModel)]="user.mncname" required>
+      <div *ngIf="signupForm.controls['mncname'].invalid && signupForm.controls['mncname'].touched" class="error-message">
+        Company Name is required.
+      </div>
+    </div>
+    <div class="form-group" >
+          <label for="level">Level:</label>
+          <select id="level" style="width: 100%;padding: 10px;border-radius: 7px;" name="level" [(ngModel)]="user.level" required>
+            <option value="" >Select an option</option>
+            <option value="option1">Level 1</option>
+            <option value="option2">Level 2</option>
+            <option value="option3">Level 3</option>
+          </select>
+          <!-- <div *ngIf="signupForm.controls['level'].invalid && signupForm.controls['level'].touched" class="error-message">
+            Additional Field is required.
+          </div> -->
+        <!-- </div> 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select> -->
+      <!-- <div *ngIf="signupForm.controls['level'].invalid && signupForm.controls['level'].touched" class="error-message">
+        Additional Field is required.
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="username">User Name:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+      <div *ngIf="signupForm.controls['username'].invalid && signupForm.controls['username'].touched" class="error-message">
+        User Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required minlength="8">
+      <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="error-message">
+        Password must be at least 8 characters.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="key" style="color: red;">CipherKey:</label>
+      <input type="text" id="key" name="key" [(ngModel)]="user.key" required minlength="4">
+      <div *ngIf="signupForm.controls['key'].invalid && signupForm.controls['key'].touched" class="error-message">
+        Don't share to Anyone.
+      </div>
+    </div>
+    <br>
+
+    <button type="submit"  style="color: #ffffff;font-style: normal;" routerLink="/mnclogin">Create Account</button>
+    <br>  
+    <p>Already Have An Account!</p>
+    <!-- <button routerLink="/login">Login</button> -->
+    <p routerLink="/mnclogin" style="font-size: 20px; color: blue;cursor: pointer;">Login</p>
+      </form>
+</div>
+<router-outlet></router-outlet>

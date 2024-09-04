@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Create Account</h1>
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm" class="signup-form">
+      <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+        <div *ngIf="signupForm.controls['username'].invalid && signupForm.controls['username'].touched" class="error-message">
+          User Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" [(ngModel)]="user.email" required>
+        <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched" class="error-message">
+          Emial is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="user.password" required minlength="8">
+        <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="error-message">
+          Password is required and must be at least 8 characters long.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" >Re-enter Password:</label>
+        <input type="text" id="password" name="password" [(ngModel)]="user.password" required minlength="4">
+        <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="error-message">
+          Password Must be same.
+        </div>
+      </div>
+  
+      <button type="submit"  style="color: #ffffff;" routerLink="/freelogin"> Create Account</button><br>
+      <p>Already Have An Account!</p>
+      <p routerLink="/freelogin" style="color: blue; cursor: pointer;font-size: 20px;">Login</p>
+    </form>
+  </div>
